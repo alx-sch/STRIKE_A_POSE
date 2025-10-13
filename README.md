@@ -139,12 +139,13 @@ To play "STRIKE A POSE!", follow these steps:
 3. A window with a video feed will appear. Adjust your position and camera angle to fit the **green square**.
    
 4. Controls:
-  - Press the `Space` key to start the countdown.
-  - Press `r` to restart the game or `q` to quit the game
+   - Press the `Space` key to start the countdown.
+   - Press `r` to restart the game or `q` to quit the game
 
 ---
 
 ### Make it Yours!
+
 Adjust the game to your needs! 💪     
 Please take a look at the documentation in collect_data.py, train_model.ipynb, and play.py for details.
 - Collect training data of poses of your choice with **collect_data.py**.
