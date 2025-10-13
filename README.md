@@ -39,7 +39,8 @@ To get started with "STRIKE A POSE!", follow these steps:
 
 3. Install the game-specific requirements:
     ```bash
-    pip install --upgrade pip -r requirements.txt
+    pip install --upgrade pip
+    pip install -r requirements.txt
     ```
 
 4.  Run the Game!    
