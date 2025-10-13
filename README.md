@@ -176,7 +176,6 @@ Please take a look at the documentation in `collect_data.py`, `train_model.ipynb
      Open `train_model.ipynb`. In the section that defines the model labels, ensure the list includes ALL seven final poses (old and new):     
      
           ```python
-          # In train_model.ipynb:
           POSES_ALL = ["stand", "squat", "X", "empty", "other", "dab", "jump"]
         
           # The create_label_mapping function will sort them and assign codes.
