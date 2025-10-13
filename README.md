@@ -146,9 +146,67 @@ To play "STRIKE A POSE!", follow these steps:
 
 Adjust the game to your needs! 💪     
 Please take a look at the documentation in collect_data.py, train_model.ipynb, and play.py for details.
-- Collect training data of poses of your choice with **collect_data.py**.
-- Train a new model to detect these new poses and evaluate the model's performance using **train_model.ipynb**. You are encouraged to explore and experiment with different model architectures.
-- Adjust the model used, poses, and respective sound files (see [Audio Credits](#audio-credits)) in **play.py** to start your new Pose Game!
+- Collect training data of poses of your choice with **`collect_data.py`**.
+- Train a new model to detect these new poses and evaluate the model's performance using **`train_model.ipynb`**. You are encouraged to explore and experiment with different model architectures.
+- Adjust the model used, poses, and respective sound files (see [Audio Credits](#audio-credits)) in **`play.py`** to start your new Pose Game!
+
+#### Example: Adding New Poses ("Dab" and "Jump")
+
+1. **Collect Data for New Poses (`collect_data.py`)**      
+    Since the data for the existing poses is already collected, you only need to run the data collection script for the new poses (dab and jump). The new data will be appended to the existing dataset. First, adjust the data collection script to define and record the new poses.
+
+   - **Edit `collect_data.py`**      
+     Open `collect_data.py` and modify the `POSES` list to include only the new poses you need to record.
+     
+     ```python
+     POSES = ["dab", "jump"]
+     ```
+
+   - **Run the Collection Script**      
+     Run the updated script and perform the **Dab** and **Jump** poses when prompted.
+     
+     ```python
+     python collect_data.py
+     ```
+
+2. **Train the New Model (`train_model.ipynb`)**        
+    Now you update the training script to recognize the full set of your final poses and retrain the model.
+
+     -  **Update the Pose List in the Notebook**  
+     Open `train_model.ipynb`. In the section that defines the model labels, ensure the list includes ALL seven final poses (old and new):     
+     
+          ```python
+          # In train_model.ipynb:
+          POSES_ALL = ["stand", "squat", "X", "empty", "other", "dab", "jump"]
+        
+          # The create_label_mapping function will sort them and assign codes.
+          # Example final LABEL_MAP (due to alphabetical sorting):
+          # {'X': 0, 'dab': 1, 'empty': 2, 'jump': 3, 'other': 4, 'squat': 5, 'stand': 6}
+          ```
+
+   - **Execute Training**       
+     Execute every cell in the notebook sequentially (Run All). The model will load all collected data, train on the combined 7 classes, and save the new model file.
+     
+        ```python
+        python collect_data.py
+        ```
+3. **Integrate and Play (`play.py`)**     
+    Finally, update the game script to use the exact 7-class structure defined by the trained model.
+
+   -  **Edit `play.py`**  
+     Open `play.py` and modify the `LABEL_MAP` dictionary in the `PARAMETERS` section to reflect the model's new, complete, alphabetically sorted structure:   
+     
+         ```python
+         # NOTE: This MUST match the full set of poses and the ALPHABETICAL ordering used during model training!
+         LABEL_MAP = {"X": 0, "Dab": 1, "Hide": 2, "Jump": 3, "Pose": 4, "Squat": 5, "Stand": 6}
+         ```
+
+    -  **Run the Game**    
+     You can now run the game using your new model and seven-pose set:
+     
+          ```python
+          python play.py 10 5
+          ```
 
 ---
 
