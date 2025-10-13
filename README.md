@@ -21,6 +21,40 @@ Check out the demonstration video in better quality [here](https://www.loom.com/
 
 https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game/assets/134595144/bcffa499-bdbe-4177-996d-abcd805d37d4
 
+### System Requirements
+
+- The game takes around **∼2.4 GB disk space** due to the encapsulated virtual environment the game is running in, but can be easily deleted completely.
+  
+- Make sure that **Python 3**, **Git**, and the **HDF5 C Library** (for managing large datasets required by TensorFlow) are installed on your system.
+ 
+     1. **Check Installation Status**
+
+        Run these commands to verify the packages are available:
+        
+        ```bash
+        git --version
+        python3 --version
+        h5cc -show
+        ```
+
+   2. **Installation Instructions**
+  
+      If any check failed, run the commands below to install them:
+ 
+        - Ubuntu/Debian
+        ```bash
+        sudo apt update	
+        sudo apt install git python3 python3-venv	
+        sudo apt install libhdf5-dev
+        ```
+
+        - macOS
+        ```bash
+        brew install python
+        brew install git
+        brew install hdf5
+        ```
+
 ### Installation / Deinstallation
 
 To get started with "STRIKE A POSE!", follow these steps:
