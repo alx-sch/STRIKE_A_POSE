@@ -21,24 +21,61 @@ Check out the demonstration video in better quality [here](https://www.loom.com/
 
 https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game/assets/134595144/bcffa499-bdbe-4177-996d-abcd805d37d4
 
-### Installation
+### Installation / Deinstallation
 
 To get started with "STRIKE A POSE!", follow these steps:
 
-1. Clone this Git repository to your local machine:
+1. Clone this Git repository to your local machine and navigate into the project directory:
    ```bash
    git clone https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game.git
+   cd STRIKE_A_POSE_Body_Pose_Classification_Game
+   ```
 
-2. Optional: Create and activate a virtual environment for better isolation of dependencies:
+2. Create and activate a virtual environment for better isolation of dependencies:
     ```bash
-    python3 -m venv envname # Create a virtual environment (macOS/LINUX)
-    source envname/bin/activate # Activate the virtual environment
+    python3 -m venv strike_a_pose_env
+    source strike_a_pose_env/bin/activate
+    ```
 
-    deactivate # Deactivate the virtual environment when not needed anymore
-
-3. Install the game-specific requirements.
+3. Install the game-specific requirements:
     ```bash
     pip install -r requirements.txt
+    ```
+
+4.  Run the Game!    
+    Start the game by specifying the number of rounds and the time between poses (in seconds).    
+    
+    ```bash
+    python play.py <NUMBER_OF_ROUNDS> <SECONDS_BETWEEN_POSES>
+    ```
+
+    **Example:** `python play.py 10 5`
+
+**Post-Game Commands**
+
+5.  Exit the environment          
+    When you are done playing, but want to keep the game installed for later:
+    
+    ```bash
+    deactivate
+    ```
+
+6.  Re-Run the Game          
+    To play again later (after running step 5), navigate back to the game directory and re-activate the environment:     
+    
+    ```bash
+    source strike_a_pose_env/bin/activate
+python play.py <NUMBER_OF_ROUNDS> <SECONDS_BETWEEN_POSES>
+    ```
+
+7.  Deinstallation  
+    To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory:
+        
+    ```bash
+    deactivate 2>/dev/null  # Safely deactivates if active
+    cd ..
+    rm -rf STRIKE_A_POSE_Body_Pose_Classification_Game
+    ``` 
 
 ### How to Play
 To enjoy "STRIKE A POSE!", follow these steps:
