@@ -94,7 +94,7 @@ To get started with "STRIKE A POSE!", follow these steps:
     ```
 
     **Example:** `python play.py 10 5`      
-    **Note:** This might take 1–2 minutes when executing for the first time.
+    **Note:** This might take 2–3 minutes when executing for the first time.
 
 **Post-Game Commands**
 
