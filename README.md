@@ -185,7 +185,7 @@ Please take a look at the documentation in collect_data.py, train_model.ipynb, a
           ```
 
    - **Execute Training**       
-     Execute every cell in the notebook sequentially (Run All). The model will load all collected data, train on the combined 7 classes, and save the new model file.
+     Execute every cell in the notebook sequentially (`Run All`). The model will load all collected data, train on the combined 7 classes, and save the new model file.
      
         ```python
         python collect_data.py
