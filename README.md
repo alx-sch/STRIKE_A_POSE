@@ -82,7 +82,7 @@ To get started with "STRIKE A POSE!", follow these steps:
 3. **Install the game-specific requirements:**
     ```bash
     pip install --upgrade pip
-    pip install  --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt
     ```
 
 4.  **Run the Game!**
