@@ -117,7 +117,7 @@ To get started with "STRIKE A POSE!", follow these steps:
 
 7.  **Deinstallation**
  
-    To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory:
+    To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory (or simply delete the folder `STRIKE_A_POSE_Body_Pose_Classification_Game`):
         
     ```bash
     deactivate 2>/dev/null
