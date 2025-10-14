@@ -90,7 +90,8 @@ To get started with "STRIKE A POSE!", follow these steps:
     python play.py <NUMBER_OF_ROUNDS> <SECONDS_BETWEEN_POSES>
     ```
 
-    **Example:** `python play.py 10 5`      
+    **Example:** `python play.py 10 5`
+
     **Note:** This might take 2–3 minutes when executing for the first time. The delay is due to the program loading the large, pre-trained pose detection model into RAM.
 
 **Post-Game Commands**
