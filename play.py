@@ -158,21 +158,21 @@ def main():
     # Creates a dictionary mapping poses to respective sound files. 
     # Each pose (key) is associated with a Pygame sound object (value) loaded from a corresponding MP3 file.
     pose_sounds = {}
-    for pose in POSES:
-        sound_file = f"./sounds/{pose}.mp3"
-        
+    for pose_label in POSES:
+        sound_file = f"./sounds/{pose_label}.mp3"
+
         # Check if the sound file exists before attempting to load it.
         if os.path.exists(sound_file):
             try:
-                pose_sounds[pose] = pygame.mixer.Sound(sound_file)
+                pose_sounds[pose_label] = pygame.mixer.Sound(sound_file)
             except pygame.error as e:
                 # Handle potential loading errors (e.g., corrupted file)
-                print(f"Warning: Could not load sound for {pose} ({sound_file}). Error: {e}")
+                print(f"Warning: Could not load sound for {pose_label} ({sound_file}). Error: {e}")
         else:
             # If the file is missing, print a warning but allow the game to continue silently.
-            print(f"Warning: Sound file not found for pose '{pose}' at '{sound_file}'.")
-    
-    # Note: If a sound is missing, the pose_sounds dictionary will simply not contain that pose key, 
+            print(f"Warning: Sound file not found for pose '{pose_label}' at '{sound_file}'.")
+
+    # Note: If a sound is missing, the pose_sounds dictionary will simply not contain that pose key,
     # preventing a crash later when the script checks 'sound = pose_sounds.get(next_pose)'.
 
     while True:
