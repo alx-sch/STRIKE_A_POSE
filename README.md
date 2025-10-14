@@ -15,6 +15,8 @@ You have the flexibility to adjust the number of rounds and the time between pos
 
 Data collection, model training, and the game script are modularized, making it easy to customize to meet your unique workout needs. 💪  
 
+Built within a week, this project showcases rapid prototyping using modern ML tools and ready-to-use frameworks and libraries, such as MediaPipe, OpenCV, and Pygame. 🚀
+
 ---
 
 ### Demo
