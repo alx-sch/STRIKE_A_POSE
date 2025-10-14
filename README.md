@@ -141,9 +141,9 @@ To play "STRIKE A POSE!", follow these steps:
 
 Adjust the game to your needs! 💪     
 Please take a look at the documentation in `collect_data.py`, `train_model.ipynb`, and `play.py` for details.
-- Collect training data of poses of your choice with **`collect_data.py`**.
-- Train a new model to detect these new poses and evaluate the model's performance using **`train_model.ipynb`**. You are encouraged to explore and experiment with different model architectures.
-- Adjust the model used, poses, and respective sound files in **`play.py`** to start your new Pose Game!
+- **`collect_data.py`**: Collect training data of poses of your choice.
+- **`train_model.ipynb`**: Train a new model to detect new poses and evaluate the model's performance. Explore and experiment with different model architectures!
+- **`play.py`**: Adjust the model, poses, and respective sound files here to start your customized Pose Game!
 
 #### Example: Adding New Poses ("Dab" and "Jump")
 
