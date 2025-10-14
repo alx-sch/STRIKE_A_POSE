@@ -80,7 +80,7 @@ To get started with "STRIKE A POSE!", follow these steps:
     source strike_a_pose_env/bin/activate
     ```
 
-3. **Install the game-specific requirements:**
+3. **Install the game-specific Python packages:**
     ```bash
     pip install --upgrade pip
     pip install --no-cache-dir -r requirements.txt
