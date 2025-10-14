@@ -45,14 +45,15 @@ https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game/assets/13
   
       If any check failed, run the commands below to install them:
  
-        - Ubuntu/Debian
+        - **Ubuntu/Debian**
         ```bash
         sudo apt update	
         sudo apt install git python3 python3-venv	
         sudo apt install libhdf5-dev
         ```
 
-        - macOS
+        - **macOS**   
+       The easiest way is via Homebrew (brew), a powerful package manager. Installation guide: [https://brew.sh/](https://brew.sh/)
         ```bash
         brew install python
         brew install git
