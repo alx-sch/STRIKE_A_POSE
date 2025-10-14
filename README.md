@@ -31,8 +31,7 @@ https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game/assets/13
   
 - Make sure that **Python 3**, **Git**, and the **HDF5 C Library** (for managing large datasets required by TensorFlow) are installed on your system.
  
-     1. **Check Installation Status**
-
+     1. **Check Installation Status**    
         Run these commands to verify the packages are available:
         
         ```bash
@@ -41,8 +40,7 @@ https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game/assets/13
         h5cc -show
         ```
 
-   2. **Installation Instructions**
-  
+   2. **Installation Instructions**    
       If any check failed, run the commands below to install them:
  
         - **Ubuntu/Debian**
@@ -67,29 +65,25 @@ https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game/assets/13
 To get started with "STRIKE A POSE!", follow these steps:
 
 1. **Clone this Git repository** to your local machine and navigate into the project directory:
-
    ```bash
    git clone https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game.git
    cd STRIKE_A_POSE_Body_Pose_Classification_Game
    ```
 
 2. **Create and activate a virtual environment** for better isolation of dependencies:
-
     ```bash
     python3 -m venv strike_a_pose_env
     source strike_a_pose_env/bin/activate
     ```
 
-3. **Install the game-specific Python packages:**
+3. **Install the game-specific Python packages:**    
     ```bash
     pip install --upgrade pip
     pip install --no-cache-dir -r requirements.txt
     ```
 
-4.  **Run the Game!**
-
+4.  **Run the Game!**    
     Start the game by specifying the number of rounds and the time between poses (in seconds). For controls, check the [How to Play](#how-to-play) section below.
-    
     ```bash
     python play.py <NUMBER_OF_ROUNDS> <SECONDS_BETWEEN_POSES>
     ```
@@ -99,16 +93,14 @@ To get started with "STRIKE A POSE!", follow these steps:
 
 **Post-Game Commands**
 
-5.  **Exit the environment**
-      
+5.  **Exit the environment**     
     When you are done playing, but want to keep the game installed for later:
     
     ```bash
     deactivate
     ```
 
-6.  **Re-run the Game**
-       
+6.  **Re-run the Game**     
     To play again later (after running step 5), navigate back to the game directory and re-activate the environment:   
     
     ```bash
@@ -116,8 +108,7 @@ To get started with "STRIKE A POSE!", follow these steps:
     python play.py <NUMBER_OF_ROUNDS> <SECONDS_BETWEEN_POSES>
     ```
 
-7.  **Deinstallation**
- 
+7.  **Deinstallation**    
     To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory (or simply delete the folder `STRIKE_A_POSE_Body_Pose_Classification_Game`):
         
     ```bash
@@ -200,6 +191,10 @@ Please take a look at the documentation in `collect_data.py`, `train_model.ipynb
          # NOTE: This MUST match the full set of poses and the ALPHABETICAL ordering used during model training!
          LABEL_MAP = {"X": 0, "Dab": 1, "Hide": 2, "Jump": 3, "Pose": 4, "Squat": 5, "Stand": 6}
          ```
+
+    -  **Optional: Add Sound Files**     
+       Place the required `.mp3` sound files into the `sounds/` folder. These files will play when the player is instructed to perform a 'Dab' or 'Jump' pose.
+       Make sure the files are named exactly as the labels above (`Dab.mp3`, `Jump.mp3`).
 
     -  **Run the Game**    
      You can now run the game using your new model and seven-pose set:
