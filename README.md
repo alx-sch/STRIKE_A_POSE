@@ -8,7 +8,7 @@
 ## Intro 
 "**STRIKE A POSE!**" is an interactive, motion-controlled videogame that uses body pose classification for fun, customizable workout challenges. Players follow along with exercises like squats, standing poses, or creative movements, with adjustable rounds and timing for added challenge.  
 
-The project is modular, with separate components for data collection, model training, and gameplay, making it easy to extend or customize. It leverages modern ML tools and frameworks, including MediaPipe, OpenCV, and Pygame, to deliver real-time pose detection and interactive gameplay.
+The project is modular, with separate components for data collection, model training, and gameplay, making it easy to extend or customize. It leverages modern ML tools and frameworks, including MediaPipe, OpenCV and Pygame, to deliver real-time pose detection and interactive gameplay.
 
 ---
 
