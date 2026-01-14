@@ -2,7 +2,7 @@
 **Predictive Body Pose Classification via Sequential Neural Network Analysis in a Motion-Controlled Videogame**
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/alx-sch/STRIKE_A_POSE/refs/heads/main/.assets/dance.png" alt="dance.png" style="width: 250px;" />
+    <img src=".assets/dance.png" alt="dance.png" style="width: 250px;" />
 </p>
 
 ## Intro 
