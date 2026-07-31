@@ -42,6 +42,7 @@ from utils import (
     process_frame,
     blink_screen,
     draw_bold_text,
+    get_scale,
     extract_landmarks,
     save_data,
     predict_pose_v2,
@@ -69,8 +70,9 @@ SAVE_DATA = False
 SAVE_PATH = "play_data"
 
 # Settings for the "postion rectangle" (outlining the 'region of interest' (ROI) used for collecting data).
-RECT_TOP_LEFT = (950, 20)
-RECT_BOTTOM_RIGHT = (350, 700)
+# Defined as fractions of frame size so it works at any resolution.
+RECT_TOP_LEFT_RATIO = (0.74, 0.03)
+RECT_BOTTOM_RIGHT_RATIO = (0.27, 0.97)
 RECT_COLOR = (0, 255, 0)  # green
 RECT_THICKNESS = 4
 
@@ -180,10 +182,13 @@ def main():
 
         if success:
             # Draws ROI rectangle into the videostream.
+            fh, fw = frame.shape[:2]
+            rect_top_left = (int(RECT_TOP_LEFT_RATIO[0] * fw), int(RECT_TOP_LEFT_RATIO[1] * fh))
+            rect_bottom_right = (int(RECT_BOTTOM_RIGHT_RATIO[0] * fw), int(RECT_BOTTOM_RIGHT_RATIO[1] * fh))
             cv2.rectangle(
                 frame,
-                RECT_TOP_LEFT,
-                RECT_BOTTOM_RIGHT,
+                rect_top_left,
+                rect_bottom_right,
                 RECT_COLOR,
                 thickness=RECT_THICKNESS,
             )
@@ -224,9 +229,10 @@ def main():
                     ]
 
                     # Iterate over list to display text.
+                    s = get_scale(frame)
                     for data in text_playing:
                         draw_bold_text(
-                            frame, data["text"], data["position"], color=(0, 0, 255)
+                            frame, data["text"], data["position"], color=(0, 0, 255), scale=s
                         )
 
                     # Plays the name of the next pose to perform as an audio cue.
@@ -357,7 +363,8 @@ def main():
                 frame = cv2.addWeighted(frame, 1 - alpha, white_rect, alpha, 0)
 
                 ## Displays text on start screen.
-                # Defines a list of text and their properties
+                s = get_scale(frame)
+                # Defines a list of text and their properties (positions/scales for 1280x720 reference)
                 start_screen_text = [
                     {
                         "text": "Press 'SPACE' to start",
@@ -434,6 +441,7 @@ def main():
                         color=element["color"],
                         thickness=element["thickness"],
                         offset=element["offset"],
+                        scale=s,
                     )
 
             # Starts playing the background music.

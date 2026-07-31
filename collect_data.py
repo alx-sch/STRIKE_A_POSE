@@ -24,6 +24,7 @@ from utils import (
     initialize_pose_model,
     process_frame,
     draw_bold_text,
+    get_scale,
     save_data,
     display_instructions,
 )
@@ -46,8 +47,9 @@ SAVE_PATH = "training_data"
 
 # Settings for the "postion rectangle" (outlining the 'region of interest' (ROI) used for collecting data).
 # The same ROI is applied in the game / pose detection.
-RECT_TOP_LEFT = (950, 20)
-RECT_BOTTOM_RIGHT = (350, 700)
+# Defined as fractions of frame size so it works at any resolution.
+RECT_TOP_LEFT_RATIO = (0.74, 0.03)
+RECT_BOTTOM_RIGHT_RATIO = (0.27, 0.97)
 RECT_COLOR = (0, 255, 0)  # green
 RECT_THICKNESS = 4
 
@@ -75,10 +77,13 @@ def main():
 
         if success:
             # Draws ROI rectangle into the videostream.
+            h, w = frame.shape[:2]
+            rect_top_left = (int(RECT_TOP_LEFT_RATIO[0] * w), int(RECT_TOP_LEFT_RATIO[1] * h))
+            rect_bottom_right = (int(RECT_BOTTOM_RIGHT_RATIO[0] * w), int(RECT_BOTTOM_RIGHT_RATIO[1] * h))
             cv2.rectangle(
                 frame,
-                RECT_TOP_LEFT,
-                RECT_BOTTOM_RIGHT,
+                rect_top_left,
+                rect_bottom_right,
                 RECT_COLOR,
                 thickness=RECT_THICKNESS,
             )
@@ -99,22 +104,13 @@ def main():
                     round_number = int(np.ceil(iterations_left / len(POSES)))
 
                     # Displays pose to be recorded and countdown until recording.
+                    s = get_scale(frame)
                     text = f"{current_pose.upper()} (left: {round_number}): {count} s"
 
-                    draw_bold_text(frame, text, position=(30, 100), color=(0, 0, 255))
+                    draw_bold_text(frame, text, position=(30, 100), color=(0, 0, 255), scale=s)
 
                     # Displays instructions on how to quit data collection.
-                    text = "Press Q to quit"
-
-                    draw_bold_text(
-                        frame,
-                        text,
-                        position=(30, 170),
-                        font_scale=1.5,
-                        color=(0, 255, 255),
-                        thickness=1,
-                        offset=1,
-                    )
+                    draw_bold_text(frame, "Press Q to quit", position=(30, 170), font_scale=1.5, color=(0, 255, 255), thickness=1, offset=1, scale=s)
 
                     # Updates countdown variable after one second has elapsed.
                     if time.time() - last_time_check >= 1:

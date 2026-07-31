@@ -33,6 +33,11 @@ CONFIDENCE_THRESHOLD_POSE_TO_STAND = 0.2  # min. prediction confidence classific
 #################
 
 
+def get_scale(frame):
+    """Returns a scale factor relative to 1280px reference width."""
+    return frame.shape[1] / 1280.0
+
+
 def draw_bold_text(
     frame,
     text,
@@ -42,6 +47,7 @@ def draw_bold_text(
     thickness=5,
     line_type=cv2.LINE_AA,
     offset=2,
+    scale=None,
 ):
     """
     Draws bolder text with slight offsets to create a thicker appearance.
@@ -49,16 +55,23 @@ def draw_bold_text(
     Args:
         frame (numpy.ndarray): The image/frame on which to draw the text.
         text (str): The text to be drawn.
-        position (tuple): (x, y) position of the text.
-        font_scale (float): Font scale.
+        position (tuple): (x, y) position of the text (for 1280x720 reference if scale is set).
+        font_scale (float): Font scale (for 1280x720 reference if scale is set).
         color (tuple): Text color (BGR format).
-        thickness (int): Thickness of the text.
+        thickness (int): Thickness of the text (for 1280x720 reference if scale is set).
         line_type: Line type for drawing text.
-        offset (int): Offset for creating bolder appearance.
+        offset (int): Offset for creating bolder appearance (for 1280x720 reference if scale is set).
+        scale (float|None): If set, position/font_scale/thickness/offset are scaled by this factor.
 
     Returns:
         None (action performed directly on frame).
     """
+    if scale is not None:
+        position = (int(position[0] * scale), int(position[1] * scale))
+        font_scale = font_scale * scale
+        thickness = max(1, int(thickness * scale))
+        offset = max(1, int(offset * scale))
+
     for offset_x, offset_y in [
         (-offset, -offset),
         (-offset, offset),
@@ -119,15 +132,17 @@ def process_frame(frame, pose):
     frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
     # Draw landmark and landmark connections on frame using given parameters for color/style (can be adjusted)
+    h, w = frame.shape[:2]
+    s = w / 1280.0
     mp_drawing.draw_landmarks(
         frame,
         results.pose_landmarks,
         mp_pose.POSE_CONNECTIONS,
         landmark_drawing_spec=mp_drawing.DrawingSpec(
-            color=(255, 255, 255), thickness=4, circle_radius=5  # white
+            color=(255, 255, 255), thickness=max(1, int(4*s)), circle_radius=max(1, int(5*s))
         ),
         connection_drawing_spec=mp_drawing.DrawingSpec(
-            color=(255, 0, 0), thickness=15, circle_radius=5  # blue
+            color=(255, 0, 0), thickness=max(1, int(15*s)), circle_radius=max(1, int(5*s))
         ),
     )
     return results, frame
@@ -322,18 +337,11 @@ def display_instructions(frame):
     Returns:
         None (action performed directly on frame).
     """
-    common_text_params = {
-        "font_scale": 2,
-        "color": (0, 255, 255),  # yellow
-        "thickness": 2,
-        "offset": 1,
-    }
-
+    s = get_scale(frame)
     text_lines = ["Press SPACE to start countdown", "Press Q to quit"]
 
     for i, text in enumerate(text_lines):
-        text_position = (30, 100 + i * 70)
-        draw_bold_text(frame, text, text_position, **common_text_params)
+        draw_bold_text(frame, text, (30, 100 + i * 70), font_scale=2, color=(0, 255, 255), thickness=2, offset=1, scale=s)
 
 
 def blink_screen(
@@ -381,51 +389,47 @@ def display_gameover_message(frame, points, ROUNDS):
     Returns:
         None
     """
+    s = get_scale(frame)
+
     # Shows game over message
-    game_over_text = "GAME OVER!"
-    game_over_position = (350, 100)
     draw_bold_text(
         frame,
-        game_over_text,
-        game_over_position,
+        "GAME OVER!",
+        (350, 100),
         font_scale=3,
-        color=(0, 0, 255),  # red
+        color=(0, 0, 255),
         thickness=3,
+        scale=s,
     )
 
-    points_text = f"Points: {points}/{ROUNDS}"
-    points_position = (350, 250)
     draw_bold_text(
         frame,
-        points_text,
-        points_position,
+        f"Points: {points}/{ROUNDS}",
+        (350, 250),
         font_scale=3,
-        color=(255, 0, 0),  # blue
+        color=(255, 0, 0),
         thickness=3,
+        scale=s,
     )
 
     # Show restart and exit instructions in a blinking manner.
     if int(time.time() * 2) % 2 == 0:
-        restart_text = "Restart: 'SPACE'"
-        restart_position = (250, 560)
-
         draw_bold_text(
             frame,
-            restart_text,
-            restart_position,
+            "Restart: 'SPACE'",
+            (250, 560),
             font_scale=3,
-            color=(0, 0, 255),  # red
+            color=(0, 0, 255),
             thickness=3,
+            scale=s,
         )
 
-        exit_text = "Exit: 'Q'"
-        exit_position = (450, 660)
-
         draw_bold_text(
             frame,
-            exit_text,
-            exit_position,
+            "Exit: 'Q'",
+            (450, 660),
             font_scale=3,
-            color=(0, 0, 255),  # red
+            color=(0, 0, 255),
             thickness=3,
+            scale=s,
         )

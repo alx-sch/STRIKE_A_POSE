@@ -87,6 +87,8 @@ To get started with "STRIKE A POSE!", follow these steps:
 
     **Note:** This might take 2–3 minutes when executing for the first time. The delay is due to the program loading the large, pre-trained pose detection model into RAM.
 
+    **macOS:** Make sure your terminal app (Terminal, iTerm, etc.) has camera access enabled under System Settings → Privacy & Security → Camera. You may need to restart the terminal after granting permission.
+
 **Post-Game Commands**
 
 5.  **Exit the environment**     
