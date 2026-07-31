@@ -40,7 +40,7 @@ pycparser==2.23
 pygame==2.6.1
 pyparsing==3.2.5
 python-dateutil==2.9.0.post0
-requests==2.32.5
+requests==2.33.0
 requests-oauthlib==2.0.0
 rsa==4.9.1
 scipy==1.15.3
