@@ -16,7 +16,7 @@ The project is modular, with separate components for data collection, model trai
 Turn the audio on! 🎧  
 Check out the demonstration video in better quality [here](https://www.loom.com/share/c715db6d054c44cab8a703be838f9201?sid=b5d8c26a-da8b-4349-9043-285fca207493).
 
-https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game/assets/134595144/bcffa499-bdbe-4177-996d-abcd805d37d4
+https://github.com/alx-sch/STRIKE_A_POSE/assets/134595144/bcffa499-bdbe-4177-996d-abcd805d37d4
 
 ---
 
@@ -61,8 +61,8 @@ To get started with "STRIKE A POSE!", follow these steps:
 
 1. **Clone this Git repository** to your local machine and navigate into the project directory:
    ```bash
-   git clone https://github.com/alx-sch/STRIKE_A_POSE_Body_Pose_Classification_Game.git
-   cd STRIKE_A_POSE_Body_Pose_Classification_Game
+   git clone https://github.com/alx-sch/STRIKE_A_POSE.git STRIKE_A_POSE
+   cd STRIKE_A_POSE
    ```
 
 2. **Create and activate a virtual environment** for better isolation of dependencies:
@@ -107,12 +107,12 @@ To get started with "STRIKE A POSE!", follow these steps:
     ```
 
 7.  **Deinstallation**    
-    To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory (or simply delete the folder `STRIKE_A_POSE_Body_Pose_Classification_Game`):
+    To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory (or simply delete the repo folder `STRIKE_A_POSE`):
         
     ```bash
     deactivate 2>/dev/null
     cd ..
-    rm -rf STRIKE_A_POSE_Body_Pose_Classification_Game
+    rm -rf STRIKE_A_POSE
     ``` 
 
 ---
