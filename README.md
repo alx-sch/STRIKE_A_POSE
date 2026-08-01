@@ -82,9 +82,7 @@ To get started with "STRIKE A POSE!", follow these steps:
 
     **Example:** `python play.py 10 5`
 
-    **Note:** This might take 2–3 minutes when executing for the first time. The delay is due to the program loading the large, pre-trained pose detection model into RAM.
-
-    **macOS:** Make sure your terminal app (Terminal, iTerm, etc.) has camera access enabled under System Settings → Privacy & Security → Camera. You may need to restart the terminal after granting permission.
+    **Note:** This might take 2–3 minutes when executing for the first time. The delay is due to the program loading the large, pre-trained pose detection model into RAM. Make sure your terminal app has camera access enabled (e.g., macOS: System Settings → Privacy & Security → Camera); you may need to restart the terminal after granting permission.
 
 **Post-Game Commands**
 
@@ -104,7 +102,7 @@ To get started with "STRIKE A POSE!", follow these steps:
     ```
 
 7.  **Deinstallation**    
-    To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory (or simply delete the repo folder `STRIKE_A_POSE`):
+    To completely remove the game, its environment, and free up disk space, run this command block while you are inside the game directory (or simply delete the repo folder `STRIKE_A_POSE/`):
         
     ```bash
     deactivate 2>/dev/null
