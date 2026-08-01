@@ -24,7 +24,7 @@ https://github.com/alx-sch/STRIKE_A_POSE/assets/134595144/bcffa499-bdbe-4177-996
 
 - The game takes around **∼2.4 GB disk space** due to the encapsulated virtual environment the game is running in, but can be easily deleted completely.
   
-- Make sure that **Python 3**, **Git**, and the **HDF5 C Library** (for managing large datasets required by TensorFlow) are installed on your system.
+- Make sure that **Python 3** and **Git** are installed on your system.
  
      1. **Check Installation Status**    
         Run these commands to verify the packages are available:
@@ -32,7 +32,6 @@ https://github.com/alx-sch/STRIKE_A_POSE/assets/134595144/bcffa499-bdbe-4177-996
         ```bash
         git --version
         python3 --version
-        h5cc -show
         ```
 
    2. **Installation Instructions**    
@@ -42,7 +41,6 @@ https://github.com/alx-sch/STRIKE_A_POSE/assets/134595144/bcffa499-bdbe-4177-996
         ```bash
         sudo apt update	
         sudo apt install git python3 python3-venv	
-        sudo apt install libhdf5-dev
         ```
 
         - **macOS**   
@@ -50,7 +48,6 @@ https://github.com/alx-sch/STRIKE_A_POSE/assets/134595144/bcffa499-bdbe-4177-996
         ```bash
         brew install python
         brew install git
-        brew install hdf5
         ```
 
 ---
